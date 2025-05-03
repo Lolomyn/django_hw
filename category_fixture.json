@@ -1,0 +1,58 @@
+[
+{
+    "model": "catalog.category",
+    "pk": 1,
+    "fields": {
+        "name": "Молочка",
+        "description": "Молочные продукты"
+    }
+},
+{
+    "model": "catalog.category",
+    "pk": 2,
+    "fields": {
+        "name": "Хлеб",
+        "description": "Хлебобулочные изделия"
+    }
+},
+{
+    "model": "catalog.category",
+    "pk": 4,
+    "fields": {
+        "name": "Фрукты",
+        "description": "Фрукты"
+    }
+},
+{
+    "model": "catalog.category",
+    "pk": 5,
+    "fields": {
+        "name": "Орехи",
+        "description": "Орехи"
+    }
+},
+{
+    "model": "catalog.category",
+    "pk": 6,
+    "fields": {
+        "name": "Рыба",
+        "description": "Морская и речная рыба"
+    }
+},
+{
+    "model": "catalog.category",
+    "pk": 7,
+    "fields": {
+        "name": "Мясо",
+        "description": "Курица, говядина, телятина"
+    }
+},
+{
+    "model": "catalog.category",
+    "pk": 10,
+    "fields": {
+        "name": "Овощи",
+        "description": "Овощи"
+    }
+}
+]
