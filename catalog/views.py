@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.http import HttpResponse
-from .models import Product, Category
+from .models import Product, Category, Contact
 
 
 def home(request):
@@ -17,4 +17,8 @@ def contacts(request):
         return HttpResponse(
             f"Спасибо за обращение, {name}! Ваше сообщение получено! "
             f"Мы свяжемся с Вами по номеру {phone} в течение трех рабочий дней!")
-    return render(request, 'contacts.html')
+
+    contact = Contact.objects.all()
+    context = {'contacts': contact}
+    return render(request, 'contacts.html', context)
+
