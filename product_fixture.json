@@ -1,0 +1,41 @@
+[
+{
+    "model": "catalog.product",
+    "pk": 1,
+    "fields": {
+        "name": "Молоко",
+        "description": "Цельное молоко, 3.2 %",
+        "image": "photos/Capture001.png",
+        "category": 1,
+        "price": 95.99,
+        "created_at": "2025-05-03T17:56:11.718Z",
+        "updated_at": "2025-05-03T17:56:11.719Z"
+    }
+},
+{
+    "model": "catalog.product",
+    "pk": 4,
+    "fields": {
+        "name": "Банан",
+        "description": "Фасованный",
+        "image": "",
+        "category": 4,
+        "price": 141.49,
+        "created_at": "2025-05-03T18:34:51.350Z",
+        "updated_at": "2025-05-03T18:34:51.350Z"
+    }
+},
+{
+    "model": "catalog.product",
+    "pk": 7,
+    "fields": {
+        "name": "Кешью",
+        "description": "Очищенные",
+        "image": "",
+        "category": 5,
+        "price": 241.49,
+        "created_at": "2025-05-03T18:36:15.959Z",
+        "updated_at": "2025-05-03T18:36:15.959Z"
+    }
+}
+]
