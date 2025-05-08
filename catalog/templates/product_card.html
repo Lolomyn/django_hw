@@ -1,0 +1,11 @@
+<div class="card ms-3 mt-3" style="width: 18rem;">
+    <img src="{{ product.image.url }}" class="card-img-top" alt="{{ product.name }}" style="height: 13rem;">
+    <div class="card-body">
+        <h5 class="card-title">{{ product.name }}</h5>
+        <h6 class="card-subtitle mb-2 text-muted">{{ product.price }} ₽</h6>
+        <p class="card-text">{{ product.description|truncatechars:100 }}</p>
+        <p class="card-text"><small class="text-muted">{{ product.category.name }}</small></p>
+        <a href="#" class="btn btn-primary">Купить</a>
+        <a href="/product_detail/{{ product.pk }}" class="btn btn-primary">Подробнее</a>
+    </div>
+</div>
