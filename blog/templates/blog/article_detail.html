@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+
+{% block title %} О статье {% endblock %}
+
+{% block content %}
+    {% include 'blog/header.html' %}
+    <div class="container mt-5">
+        <div class="card mb-3">
+            <div class="row g-0">
+                <div class="col-md-4">
+                    <img src="{{ object.preview.url }}" class="img-fluid" alt="{{ object.title }}">
+                </div>
+                <div class="col-md-8">
+                    <div class="card-body">
+                        <nav class="nav nav-pills flex-column flex-sm-row">
+                            <p class="flex-sm-fill text-sm-start">
+                                <small
+                                        class="text-body-tertiary">{{ object.created_at }}
+                                </small>
+                            </p>
+                            <p class="flex-sm-fill text-sm-end">
+                                <small
+                                        class="text-body">Просмотров: {{ object.count_of_views }}
+                                </small>
+                            </p>
+                        </nav>
+                        <h5 class="card-title">{{ object.title }}</h5>
+                        <p class="card-text">{{ object.content }}</p>
+                        <a href="{% url 'blog:article_update' article.pk %}" class="btn btn-warning">Редактировать</a>
+                        <a href="{% url 'blog:article_delete' article.pk %}" class="btn btn-danger">Удалить</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <a class="btn btn-primary" href="{% url 'blog:article_list' %}">←</a>
+
+
+        {% include 'blog/footer.html' %}
+    </div>
+{% endblock %}
