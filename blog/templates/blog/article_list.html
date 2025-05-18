@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block title %} Блог {% endblock %}
+
+{% block content %}
+    {% include 'blog/header.html' %}
+    <div class="container mt-5">
+        <div class="row">
+            {% for article in object_list %}
+                {% include 'blog/article_card.html' %}
+            {% endfor %}
+        </div>
+
+
+    </div>
+
+{% endblock %}
