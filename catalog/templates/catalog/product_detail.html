@@ -1,0 +1,29 @@
+{% extends 'catalog/base.html' %}
+
+{% block title %}О продукте{% endblock %}
+
+{% block content %}
+    {% include 'catalog/header.html' %}
+    <div class="container mt-5">
+        <div class="card mb-3">
+            <div class="row g-0">
+                <div class="col-md-4">
+                    <img src="{{ object.image.url }}" class="img-fluid" alt="{{ object.name }}">
+                </div>
+                <div class="col-md-8">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ object.name }}</h5>
+                        <p class="card-text">{{ object.description }}</p>
+                        <p class="card-text"><small class="text-body-secondary">{{ object.price }} ₽</small></p>
+                        <p class="card-text text-end"></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <a class="btn btn-primary" href="{% url 'catalog:product_list' %}">←</a>
+        <a class="btn btn-warning" href="{% url 'catalog:product_update' object.pk %}">Редактировать</a>
+        <a class="btn btn-danger" href="{% url 'catalog:product_delete' object.pk %}">Удалить</a>
+        {% include 'catalog/footer.html' %}
+    </div>
+{% endblock %}

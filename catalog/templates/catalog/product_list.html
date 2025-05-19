@@ -1,18 +1,18 @@
-{% extends 'base.html' %}
+{% extends 'catalog/base.html' %}
 
 {% block title %}Каталог{% endblock %}
 
 {% block content %}
-    {% include 'header.html' %}
+    {% include 'catalog/header.html' %}
     <div class="container mt-5">
         <div class="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
             <h1 class="display-4">FlashMarket</h1>
             <p class="lead">FlashMarket - ваш доступный выбор</p>
         </div>
-        {% if products %}
-            <div class="d-flex flex-row">
-                {% for product in products %}
-                    {% include 'product_card.html' %}
+        {% if object_list %}
+            <div class="row">
+                {% for product in object_list %}
+                    {% include 'catalog/product_card.html' %}
                 {% endfor %}
             </div>
 
@@ -20,7 +20,7 @@
         {% else %}
             <small class="text-body-secondary">Список продуктов пуст ...</small>
         {% endif %}
-        {% include 'footer.html' %}
+        {% include 'catalog/footer.html' %}
     </div>
 
 {% endblock %}

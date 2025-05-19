@@ -5,7 +5,10 @@ from . import views
 app_name = CatalogConfig.name
 
 urlpatterns = [
-    path('home/', views.ProductListView.as_view(), name='home'),
-    path('contacts/', views.ContactsCreateView.as_view(), name='contacts'),
-    path('product_detail/<int:pk>/', views.ProductDetailView.as_view(), name='product_detail')
+    path('catalog/product_list', views.ProductListView.as_view(), name='product_list'),
+    path('catalog/<int:pk>/', views.ProductDetailView.as_view(), name='product_detail'),
+    path('catalog/create', views.ProductCreateView.as_view(), name='product_create'),
+    path('catalog/<int:pk>/update', views.ProductUpdateView.as_view(), name='product_update'),
+    path('catalog/contacts/', views.ContactsCreateView.as_view(), name='contacts'),
+    path('catalog/<int:pk>/delete/', views.ProductDeleteView.as_view(), name='product_delete'),
 ]

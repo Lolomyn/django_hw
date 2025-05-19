@@ -6,6 +6,6 @@
         <p class="card-text">{{ product.description|truncatechars:100 }}</p>
         <p class="card-text"><small class="text-muted">{{ product.category.name }}</small></p>
         <a href="#" class="btn btn-primary">Купить</a>
-        <a href="/product_detail/{{ product.pk }}" class="btn btn-primary">Подробнее</a>
+        <a href="{{ product.pk }}/" class="btn btn-primary">Подробнее</a>
     </div>
 </div>
