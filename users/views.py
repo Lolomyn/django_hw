@@ -48,6 +48,7 @@ class UserCreateView(CreateView):
             from_email=EMAIL_HOST_USER,
             recipient_list=[user.email]
         )
+        return super().form_valid(form)
 
 
 def email_confirm(request, token):
