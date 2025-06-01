@@ -26,8 +26,12 @@
                         </nav>
                         <h5 class="card-title">{{ object.title }}</h5>
                         <p class="card-text">{{ object.content }}</p>
-                        <a href="{% url 'blog:article_update' article.pk %}" class="btn btn-warning">Редактировать</a>
-                        <a href="{% url 'blog:article_delete' article.pk %}" class="btn btn-danger">Удалить</a>
+                        {% if perms.catalog.can_unpublished_product %}
+                            <a href="{% url 'blog:article_update' article.pk %}"
+                               class="btn btn-warning">Редактировать</a>
+                            <a href="{% url 'blog:article_delete' article.pk %}" class="btn btn-danger">Удалить</a>
+                        {% endif %}
+
                     </div>
                 </div>
             </div>

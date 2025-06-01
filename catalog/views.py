@@ -7,10 +7,6 @@ from django.urls import reverse_lazy
 from django.contrib.auth.mixins import LoginRequiredMixin
 
 
-class UnpublishedProductView(LoginRequiredMixin, View):
-    pass
-
-
 class ProductListView(ListView):
     model = Product
 

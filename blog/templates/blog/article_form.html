@@ -1,16 +1,19 @@
 {% extends 'blog/base.html' %}
 
-{% block title %}Форма книги{% endblock %}
+{% block title %}Форма статьи{% endblock %}
 
 {% block content %}
     {% include 'blog/header.html' %}
-    <h2>Форма статьи</h2>
-    <form method="post" enctype="multipart/form-data">
-        {% csrf_token %}
-        {{ form.as_p }}
-        <a href="{% url 'blog:article_list' %}">
-            <button type="submit" class="btn btn-primary">Сохранить</button>
-        </a>
-        <a href="javascript:history.back()" class="btn btn-secondary">Отмена</a>
-    </form>
+
+    <div class="container">
+        <h2>Форма статьи</h2>
+        <form method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <a href="{% url 'blog:article_list' %}">
+                <button type="submit" class="btn btn-primary">Сохранить</button>
+            </a>
+            <a href="javascript:history.back()" class="btn btn-secondary">Отмена</a>
+        </form>
+    </div>
 {% endblock %}
