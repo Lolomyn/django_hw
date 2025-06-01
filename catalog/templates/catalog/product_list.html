@@ -12,6 +12,8 @@
         {% if object_list %}
             <div class="row">
                 {% for product in object_list %}
+                    {% if product %}
+                    {% endif %}
                     {% include 'catalog/product_card.html' %}
                 {% endfor %}
             </div>

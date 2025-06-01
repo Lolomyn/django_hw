@@ -4,11 +4,17 @@ from PIL import Image
 import sys
 
 
+class ProductModeratorForm(forms.ModelForm):
+    class Meta:
+        model = Product
+        fields = ('is_published',)
+
+
 class ProductForm(forms.ModelForm):
     class Meta:
         model = Product
         fields = "__all__"
-        exclude = ['created_at', 'updated_at']
+        exclude = ['created_at', 'updated_at', 'owner']
 
     def __init__(self, *args, **kwargs):
         super(ProductForm, self).__init__(*args, **kwargs)
@@ -61,10 +67,13 @@ class ProductForm(forms.ModelForm):
 
     def clean_image(self):
         image = self.cleaned_data.get('image')
-        img = image
-        if image and not str(image).endswith('.jpg') or not str(image).endswith('.jpeg') or not str(image).endswith(
-                '.png'):
-            self.add_error('image', 'Загрузите изображение формата JPEG или PNG')
 
-        if image and img.size > 5_242_880:
-            self.add_error('image', "Максимальный вес загружаемого изображения 5 МБ")
+        if image:
+            allowed_extensions = ['.jpg', '.jpeg', '.png']
+            if not any(str(image).lower().endswith(ext) for ext in allowed_extensions):
+                self.add_error('image', 'Загрузите изображение формата JPEG или PNG')
+
+            if image.size > 5 * 1024 * 1024:
+                self.add_error('image', "Максимальный вес загружаемого изображения 5 МБ")
+
+        return image
