@@ -20,10 +20,12 @@
                 </div>
             </div>
         </div>
-
         <a class="btn btn-primary" href="{% url 'catalog:product_list' %}">←</a>
-        <a class="btn btn-warning" href="{% url 'catalog:product_update' object.pk %}">Редактировать</a>
-        <a class="btn btn-danger" href="{% url 'catalog:product_delete' object.pk %}">Удалить</a>
+        {% if perms.catalog.can_unpublished_product or user == product.owner %}
+            <a class="btn btn-warning" href="{% url 'catalog:product_update' object.pk %}">Редактировать</a>
+            <a class="btn btn-danger" href="{% url 'catalog:product_delete' object.pk %}">Удалить</a>
+        {% endif %}
+
         {% include 'catalog/footer.html' %}
     </div>
 {% endblock %}

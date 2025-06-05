@@ -16,3 +16,6 @@ class Article(models.Model):
         verbose_name = 'Статья'
         verbose_name_plural = 'Статьи'
         ordering = ['title', 'created_at']
+        permissions = [
+            ('can_edit_articles', 'Can edit articles')
+        ]

@@ -1,4 +1,6 @@
 from django.shortcuts import render
+
+from .forms import ArticleForm
 from .models import Article
 from django.views.generic import ListView, DetailView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
@@ -8,7 +10,7 @@ from django.urls import reverse_lazy
 class ArticleCreateView(CreateView):
     """blog/article_create"""
     model = Article
-    fields = ['title', 'content', 'preview', 'is_published']
+    form_class = ArticleForm
     success_url = reverse_lazy('blog:article_list')
 
 
