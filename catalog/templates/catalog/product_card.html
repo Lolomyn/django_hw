@@ -1,11 +1,26 @@
-<div class="card ms-3 mt-3" style="width: 18rem;">
-    <img src="{{ product.image.url }}" class="card-img-top" alt="{{ product.name }}" style="height: 13rem;">
-    <div class="card-body">
-        <h5 class="card-title">{{ product.name }}</h5>
-        <h6 class="card-subtitle mb-2 text-muted">{{ product.price }} ₽</h6>
-        <p class="card-text">{{ product.description|truncatechars:100 }}</p>
-        <p class="card-text"><small class="text-muted">{{ product.category.name }}</small></p>
-        <a href="#" class="btn btn-primary">Купить</a>
-        <a href="{{ product.pk }}/" class="btn btn-primary">Подробнее</a>
+
+    <div class="col-md-3 mb-4">
+        <div class="card h-100">
+            <a href="{% url 'catalog:product_detail' product.pk %}">
+                <img src="{{ product.image.url }}" class="card-img-top" alt="{{ product.name }}"
+                     style="height: 180px; object-fit: cover;">
+            </a>
+            <div class="card-body">
+                <h5 class="card-title">
+                    <a href="{% url 'catalog:product_detail' product.pk %}" class="text-decoration-none text-dark">
+                        {{ product.name }}
+                    </a>
+                </h5>
+                <p class="card-text text-muted small">{{ product.description|truncatechars:60 }}</p>
+                <p class="card-text"><small class="text-muted"><a
+                        href={% url 'catalog:category_list' product.category.id %}>{{ product.category.name }}</a></small>
+                </p>
+                <p class="card-subtitle mb-2 text-muted">{{ product.price }} руб.</p>
+            </div>
+            <div class="card-footer bg-white">
+                <a href="{% url 'catalog:product_detail' product.pk %}" class="btn btn-sm btn-outline-primary">
+                    Подробнее
+                </a>
+            </div>
+        </div>
     </div>
-</div>
